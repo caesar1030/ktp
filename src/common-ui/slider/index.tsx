@@ -6,6 +6,12 @@ interface MyProps {
   children: ReactNode[];
 }
 
+const AUTO_SLIDE_TERM = 5000;
+const Directions = {
+  LEFT: -1,
+  RIGHT: 1,
+} as const;
+
 const Slider = ({ children }: MyProps) => {
   const [slideIndex, setSlideIndex] = useState(1);
   const slidesWrapperRef = useRef<HTMLDivElement>(null!);
@@ -19,8 +25,6 @@ const Slider = ({ children }: MyProps) => {
   const fakeLength = slides.length;
 
   const replaceSlideWithoutAnimation = (toReplaceIndex: number) => {
-    if (slidesWrapperRef.current.style.transition === 'none') return;
-
     slidesWrapperRef.current.style.transition = 'none';
     slidesWrapperRef.current.style.transform = `translateX(-${
       toReplaceIndex * 100
@@ -32,28 +36,22 @@ const Slider = ({ children }: MyProps) => {
     });
   };
 
-  const moveLeft = () => {
-    if (slideIndex <= 1) {
-      replaceSlideWithoutAnimation(fakeLength - 1);
-      setSlideIndex(fakeLength - 2);
+  const move = (direction: keyof typeof Directions) => {
+    const hasToReplace =
+      direction === 'LEFT' ? slideIndex <= 1 : slideIndex >= fakeLength - 2;
+    const toReplaceIndex = direction === 'LEFT' ? fakeLength - 1 : 0;
+
+    if (hasToReplace) {
+      replaceSlideWithoutAnimation(toReplaceIndex);
+      setSlideIndex(toReplaceIndex + Directions[direction]);
+
       return;
     }
 
-    setSlideIndex((prev) => prev - 1);
+    setSlideIndex((prev) => prev + Directions[direction]);
   };
 
-  // TODO: function으로 바꾸고 useInterval 맨 위로 올릴지? 고민해보기
-  const moveRight = () => {
-    if (slideIndex >= fakeLength - 2) {
-      replaceSlideWithoutAnimation(0);
-      setSlideIndex(1);
-      return;
-    }
-
-    setSlideIndex((prev) => prev + 1);
-  };
-
-  useInterval(moveRight, 2000);
+  useInterval(() => move('RIGHT'), AUTO_SLIDE_TERM);
 
   return (
     <S.Slider>
@@ -63,8 +61,8 @@ const Slider = ({ children }: MyProps) => {
         ))}
       </S.SlidesContainer>
 
-      <S.LeftButton onClick={() => moveLeft()}> {'<'}</S.LeftButton>
-      <S.RightButton onClick={() => moveRight()}> {'>'}</S.RightButton>
+      <S.LeftButton onClick={() => move('LEFT')}> {'<'}</S.LeftButton>
+      <S.RightButton onClick={() => move('RIGHT')}> {'>'}</S.RightButton>
     </S.Slider>
   );
 };
