@@ -2,7 +2,7 @@ import { Children, ReactNode, useRef, useState } from 'react';
 import * as S from './styles';
 import useInterval from '../../hooks/use-interval';
 
-interface MyProps {
+interface SliderProps {
   children: ReactNode[];
 }
 
@@ -12,7 +12,7 @@ const Directions = {
   RIGHT: 1,
 } as const;
 
-const Slider = ({ children }: MyProps) => {
+const Slider = ({ children }: SliderProps) => {
   const [slideIndex, setSlideIndex] = useState(1);
   const slidesWrapperRef = useRef<HTMLDivElement>(null!);
 
