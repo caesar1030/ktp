@@ -11,21 +11,6 @@ import {
 import * as S from './styles';
 import useInterval from '../../hooks/use-interval';
 
-const AUTO_SLIDE_TERM = 5000;
-const Directions = {
-  LEFT: -1,
-  RIGHT: 1,
-} as const;
-
-interface SlideContextType {
-  move: (direction: keyof typeof Directions) => void;
-  slidesContainerRef: MutableRefObject<HTMLDivElement>;
-  totalLengthRef: MutableRefObject<number>;
-  slideIndex: number;
-}
-
-const SliderContext = createContext<SlideContextType>(null!);
-
 interface SliderProps {
   children: ReactNode;
 }
@@ -45,6 +30,20 @@ interface LeftButtonProps {
 interface RightButtonProps {
   children: ReactNode;
 }
+
+interface SlideContextType {
+  move: (direction: keyof typeof Directions) => void;
+  slidesContainerRef: MutableRefObject<HTMLDivElement>;
+  totalLengthRef: MutableRefObject<number>;
+  slideIndex: number;
+}
+const SliderContext = createContext<SlideContextType>(null!);
+
+const Directions = {
+  LEFT: -1,
+  RIGHT: 1,
+} as const;
+const AUTO_SLIDE_TERM = 5000;
 
 const Slider = ({ children }: SliderProps) => {
   const [slideIndex, setSlideIndex] = useState(1);
