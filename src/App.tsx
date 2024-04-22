@@ -1,6 +1,7 @@
 import DropDown from './common-ui/drop-down';
 import GlobalStyles from './styles/global-styles';
 import HomeBanner from './common-ui/home-banner';
+import Floating from './common-ui/floating';
 
 const App = () => {
   return (
@@ -9,14 +10,70 @@ const App = () => {
 
       <HomeBanner />
 
-      <DropDown>
-        <DropDown.Trigger>
-          <span>도입문의</span>
-        </DropDown.Trigger>
-        <DropDown.Content>
-          <div>컨텐츠</div>
-        </DropDown.Content>
-      </DropDown>
+      <section>
+        <Floating />
+
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+      </section>
     </>
   );
 };
