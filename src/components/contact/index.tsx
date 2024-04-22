@@ -1,11 +1,11 @@
-import ContactForm from '../contact-form';
-import DropDown from '../drop-down';
+import ContactForm from '../../common-ui/contact-form';
+import DropDown from '../../common-ui/drop-down';
 import * as S from './styles';
 import { createPortal } from 'react-dom';
 
-const Floating = () => {
+const Contact = () => {
   return createPortal(
-    <S.Floating>
+    <S.Contact>
       <DropDown>
         <DropDown.Trigger>
           <S.Button>도입문의</S.Button>
@@ -14,9 +14,9 @@ const Floating = () => {
           <ContactForm />
         </DropDown.Content>
       </DropDown>
-    </S.Floating>,
+    </S.Contact>,
     document.body
   );
 };
 
-export default Floating;
+export default Contact;

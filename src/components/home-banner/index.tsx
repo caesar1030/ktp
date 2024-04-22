@@ -1,4 +1,4 @@
-import Slider from '../slider';
+import Slider from '../../common-ui/slider';
 import * as S from './styles';
 import smallDutyFreeImg from '../../assets/duty-free-small.webp';
 import dutyFreeImg from '../../assets/duty-free.webp';
@@ -6,7 +6,7 @@ import smallHospitalImg from '../../assets/hospital-small.webp';
 import hospitalImg from '../../assets/hospital.webp';
 import smallPaymentImg from '../../assets/payment-small.webp';
 import paymentImg from '../../assets/payment.webp';
-import Arrow from '../arrow';
+import Arrow from '../../common-ui/arrow';
 
 const images = [
   {

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Floating = styled.div`
+export const Contact = styled.div`
   position: fixed;
   top: 80px;
   right: 40px;
