@@ -30,7 +30,7 @@ const HomeBanner = () => {
         <Slider.SlidesContainer>
           {images.map(({ small, large }) => {
             return (
-              <Slider.Slide>
+              <Slider.Slide key={small + large}>
                 <S.Image $small={small} $large={large} />
               </Slider.Slide>
             );

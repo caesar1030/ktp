@@ -1,5 +1,6 @@
 import {
   Children,
+  Fragment,
   MutableRefObject,
   ReactNode,
   createContext,
@@ -116,7 +117,9 @@ const SlidesContainer = ({ children }: SlidesContainerProps) => {
 
   return (
     <S.SlidesContainer ref={slidesContainerRef} $slideindex={slideIndex}>
-      {slides}
+      {slides.map((slide, idx) => (
+        <Fragment key={idx}>{slide}</Fragment>
+      ))}
     </S.SlidesContainer>
   );
 };
