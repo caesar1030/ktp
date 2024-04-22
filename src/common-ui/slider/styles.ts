@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-interface SlidesContainerProps {
+interface SSlidesContainerProps {
   $slideindex: number;
 }
 
@@ -11,7 +11,7 @@ export const Slider = styled.div`
   position: relative;
 `;
 
-export const SlidesContainer = styled.div<SlidesContainerProps>`
+export const SlidesContainer = styled.div<SSlidesContainerProps>`
   display: flex;
   transform: ${(props) => `translateX(-${props.$slideindex * 100}%)`};
   transition: transform 0.3s ease;

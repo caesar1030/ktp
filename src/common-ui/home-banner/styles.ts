@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-interface ImageProps {
+interface SImageProps {
   $small: string;
   $large: string;
 }
@@ -9,7 +9,7 @@ export const HomeBanner = styled.div`
   height: 100vh;
 `;
 
-export const Image = styled.img<ImageProps>`
+export const Image = styled.img<SImageProps>`
   width: 100%;
   height: 100%;
   object-fit: contain;
