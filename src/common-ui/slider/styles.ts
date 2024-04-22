@@ -7,6 +7,7 @@ interface SlidesContainerProps {
 export const Slider = styled.div`
   overflow: hidden;
   width: 100%;
+  height: 100%;
   position: relative;
 `;
 
@@ -14,12 +15,13 @@ export const SlidesContainer = styled.div<SlidesContainerProps>`
   display: flex;
   transform: ${(props) => `translateX(-${props.$slideindex * 100}%)`};
   transition: transform 0.3s ease;
+  height: inherit;
 `;
 
 export const Slide = styled.div`
   min-width: 100%;
   max-width: 100%;
-  height: 100px;
+  height: inherit;
 `;
 
 const Button = styled.button`
@@ -30,9 +32,17 @@ const Button = styled.button`
 `;
 
 export const LeftButton = styled(Button)`
-  left: 20px;
+  left: 24px;
+
+  @media (min-width: 1020px) {
+    left: 48px;
+  }
 `;
 
 export const RightButton = styled(Button)`
-  right: 20px;
+  right: 24px;
+
+  @media (min-width: 1020px) {
+    right: 48px;
+  }
 `;
