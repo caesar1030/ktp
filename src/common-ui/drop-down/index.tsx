@@ -85,7 +85,7 @@ const Trigger = ({ children }: TriggerProps) => {
 
 const Content = ({ children }: ContentProps) => {
   const context = useContext(DropDownContext);
-  if (!context) throw new Error('Trigger가 DropDown컴포넌트 외부에서 사용');
+  if (!context) throw new Error('Content가 DropDown컴포넌트 외부에서 사용');
 
   const { setContentWidth, contentRef, isExpanded } = context;
 

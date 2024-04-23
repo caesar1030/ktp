@@ -1,4 +1,4 @@
-import ContactForm from '../../common-ui/contact-form';
+import ContactForm from '../contact-form';
 import DropDown from '../../common-ui/drop-down';
 import * as S from './styles';
 import { createPortal } from 'react-dom';
